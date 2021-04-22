@@ -9,8 +9,8 @@ export default class Home extends React.Component {
     };
   }
   componentDidMount() {
-    this.socket = io({
-      query: `name=${"Diego"}`,
+    this.socket = io("https://socketio-server.herokuapp.com/", {
+      query: `name=${"FROM NEXT.JS"}`,
     });
     this.socket.on("user connected", (data) => {
       this.setState({
