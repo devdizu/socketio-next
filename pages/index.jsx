@@ -1,6 +1,5 @@
 import React from "react";
-// import io from "socket.io-client";
-import User from "../components/name";
+import User from "../components/user";
 import { withRouter } from "next/router";
 
 
@@ -12,14 +11,13 @@ class Home extends React.Component {
     };
   }
   handleCallback = (name) => {
-    console.log("child data", name);
     this.setState({ user: name });
     this.props.router.push(`/chat/${name}`);
   };
 
   render() {
     return (
-      <div className="fixed w-full h-full flex items-center justify-center bg-gray-300">
+      <div className="fixed w-full h-full flex items-center justify-center chat-content">
         <User parentCallback={this.handleCallback} />
       </div>
     );

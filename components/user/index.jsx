@@ -21,11 +21,11 @@ export default class User extends React.Component {
   render() {
     return (
       <form
-        className="flex flex-col items-center justify-center w-80 h-64 bg-white rounded-md shadow-md p-10"
+        className="flex flex-col items-center justify-center w-80 bg-white rounded-md shadow-md px-10 py-8"
         onSubmit={this.handleSubmit}
       >
-        <label htmlFor="inputUsername" className="text-2xl mb-3">
-          Dime tu nombre
+        <label htmlFor="inputUsername" className="text-2xl mb-5 text-center">
+          Escribe tu nombre para comenzar
         </label>
         <input
           type="text"
