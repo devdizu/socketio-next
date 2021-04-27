@@ -29,12 +29,12 @@ export default class Chat extends React.Component {
       this.setState({
         messages: [...this.state.messages, { name, isNotification: true }],
       });
-      this.scrollToBottom();
+      // this.scrollToBottom();
     });
 
     this.socket.on("chat message", (newMessage) => {
       this.setState({ messages: [...this.state.messages, newMessage] });
-      this.scrollToBottom();
+      // this.scrollToBottom();
     });
   }
 
