@@ -1,25 +1,29 @@
 import React from "react";
-import io from "socket.io-client";
+// import io from "socket.io-client";
+import User from "../components/name";
+import { withRouter } from "next/router";
 
-export default class Home extends React.Component {
+
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "...",
+      user: "",
     };
   }
-  componentDidMount() {
-    this.socket = io("https://socketio-server.herokuapp.com/", {
-      query: `name=${"FROM NEXT.JS"}`,
-    });
-    this.socket.on("user connected", (data) => {
-      this.setState({
-        message: data,
-      });
-    });
-  }
+  handleCallback = (name) => {
+    console.log("child data", name);
+    this.setState({ user: name });
+    this.props.router.push(`/chat/${name}`);
+  };
 
   render() {
-    return <div>{this.state.message}</div>;
+    return (
+      <div className="fixed w-full h-full flex items-center justify-center bg-gray-300">
+        <User parentCallback={this.handleCallback} />
+      </div>
+    );
   }
 }
+
+export default withRouter(Home);
