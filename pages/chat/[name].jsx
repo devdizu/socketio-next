@@ -40,7 +40,7 @@ export default class Chat extends React.Component {
     });
   }
 
-  getMessages(currentName) {
+  getMessagesAndNotifications(currentName) {
     return this.state.messages.map((message, index) => {
       const key = `message-${index}`;
       const isSameUser = message.name === currentName;
@@ -75,7 +75,7 @@ export default class Chat extends React.Component {
             this.messagesEnd = el;
           }}
         >
-          {this.getMessages(this.props.name)}
+          {this.getMessagesAndNotifications(this.props.name)}
           <div ref={this.scrollRef}></div>
         </div>
         <form
