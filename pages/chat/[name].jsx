@@ -29,31 +29,25 @@ export default class Chat extends React.Component {
       this.setState({
         messages: [...this.state.messages, { name, isNotification: true }],
       });
-      // this.scrollToBottom();
+      this.scrollToBottom();
     });
 
     this.socket.on("chat message", (newMessage) => {
       this.setState({ messages: [...this.state.messages, newMessage] });
-      // this.scrollToBottom();
+      this.scrollToBottom();
     });
   }
 
   getMessages(currentName) {
-    return this.state.messages.map((message, index) =>
-      !message.isNotification ? (
-        <Message
-          key={`message-${index}`}
-          isSameUser={message.name === currentName}
-          {...message}
-        />
+    return this.state.messages.map((message, index) => {
+      const key = `message-${index}`;
+      const isSameUser = message.name === currentName;
+      return !message.isNotification ? (
+        <Message key={key} isSameUser={isSameUser} {...message} />
       ) : (
-        <Notification
-          key={`notification-${index}`}
-          isSameUser={message.name === currentName}
-          {...message}
-        />
-      )
-    );
+        <Notification key={key} isSameUser={isSameUser} {...message} />
+      );
+    });
   }
   handleChange(event) {
     this.setState({ messageToSend: event.target.value });
