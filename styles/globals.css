@@ -22,7 +22,3 @@ a {
 .max-w-80-p {
   max-width: 80%;
 }
-
-.flex-row-reverse {
-  flex-direction: row-reverse;
-}
