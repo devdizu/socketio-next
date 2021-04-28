@@ -16,9 +16,11 @@ export default class Chat extends React.Component {
   }
 
   scrollToBottom() {
-    this.scrollRef.current.scrollIntoView({
-      behavior: "smooth",
-    });
+    if (!!this.scrollRef) {
+      this.scrollRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
   }
 
   componentDidMount() {

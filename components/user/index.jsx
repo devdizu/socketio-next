@@ -15,7 +15,7 @@ export default class User extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.parentCallback(this.state.name);
+    this.props.onNameSelected(this.state.name);
   };
 
   render() {
