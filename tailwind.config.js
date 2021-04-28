@@ -6,9 +6,6 @@ module.exports = {
   },
   variants: {
     opacity: ({ after }) => after(["disabled"]),
-    corePlugins: {
-      flexDirection: true,
-    },
   },
   plugins: [],
 };
